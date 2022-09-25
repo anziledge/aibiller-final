@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<script type="text/javascript" src="/static/scripts/animationjs.js"></script>
+    <script src="/static/scripts/animationjs1.js"></script>
+    <script src="/static/scripts/animationjs2.js"></script>
+  
+  
+	<div id="qrpage">
+    <div class="my-7">
+    <h1 class="text-center">Scan the QR code below to pay</h1>
+    </div>
+
+    <div class="text-center">
+		<img src="{{image}}" alt="unable to load qrcode">
+    </div>
+    </div>
+
+	<div id="success" style="display:none;">
+        <lottie-player class="mx-auto" src="/static/scripts/successanimation.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" autoplay></lottie-player>
+          </div>
+    
+    <script src="/static/scripts/jquery.js"></script>
+	<script>
+		
+		window.onload = () => {
+			setInterval(()=>{
+				$('#qrpage').css("display", "none")
+				setInterval(() =>{
+					$('#success').css("display", "grid")},1000)
+				setInterval(() => {
+					window.open('http://127.0.0.1:5000/', '_self')},4000)
+			},10000)
+			
+			}
+		
+		
+	</script>
+
+{% endblock %}
